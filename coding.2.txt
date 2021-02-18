@@ -1,0 +1,104 @@
+생활 코딩 (2주)
+
+</>태그 속성 
+Attribute 태그의 이름만으로 정보가 부족할 때(풍부한 표현력), 위치 상관 없음
+Unsplash 이미지 
+<img src="coding.jpg" width="100%"> 
+
+<parent> 포함하고 있는 부모 태그
+     <child></child> 포함된 자식 태그
+</parent>
+
+<ul> Unordered List 다른 목록과 구분하는 경계, 그룹화 (반드시 자식 태그가 있음)
+<li> 1. HTML </li> 항목
+<li> 2. CSS </li>
+<li> 3. JavaScript </li>
+</ul>
+
+<ol> Ordered List 자동으로 숫자 넘버링
+<li> HTML </li>
+<li> CSS </li>
+<li> JavaScript </li>
+</ol>
+
+<table> 표
+      <tr>
+            <td>head</td>
+            <td>98.1%</td>
+      </tr>
+      <tr>
+            <td>body</td>
+            <td>97.9%</td>
+      </tr>
+      <tr>
+            <td>html</td>
+            <td>97.9%</td>
+      </tr>
+</table>
+
+웹페이지 구조 파악
+
+<!doctype html> 웹페이지가 HTML로서 만들어짐을 표현
+<html>
+<head> 본문 설명
+  <title>WEB1 - html</title> 웹페이지의 제목
+  <meta charset="utf-8"> 본문이 UTF-8방식으로 저장되어 있음을 설명
+</head>
+<body> 본문
+  <h1>HTML이란 무엇인가?</h1> 영어가 아닌 문자를 표현
+</body>
+</html>
+
+<a> 링크 (정보의 바다에 정박한다는 시적 표현)
+<p><a href="https://www.w3.org/TR/html5/" target="_blank" title="html5 specification">Hypertext Markup Language (HTML)</a>
+href HyperText Reference 링크 참조
+target="_blank" 링크 클릭시 새창에서 페이지가 열리게 하는 속성
+title="html5 specification" 링크가 담고 있는 내용을 툴팁으로 보여주는 기능
+
+Website웹페이지 엮기
+
+WEB-->index.html
+1. HTML-->1.html
+2. CSS-->2.html
+3. JavaScript-->3.html
+
+<h1><a href="index.html">WEB</a></h1>
+<ol>
+  <li><a href="1.html">HTML</a></li>
+  <li><a href="2.html">CSS</a></li>
+  <li><a href="3.html">JavaScript</a></li>
+</ol>
+
+수업 tip.
+1. 웹페이지 만들기
+2. 만든 웹페이지 인터넷을 통해 누구나 가져갈 수 있게 하기
+
+Internet : 운영체제 vs WEB : 운영체제 위에서 동작하는 하나의 앱 (인터넷의 부분집합)
+
+원시웹
+1960년 인터넷 탄생
+1990년 웹 시작 / 연구소에 인터넷 도입
+1990년 11월 세계 최초의 웹브라우저 (world wide web)
+           12월 웹서버 완성 info.cern.ch 주소(도메인 네임) 부여. 세계 최초의 웹페이지
+
+Web Browser = 웹 클라이언트
+Web Server = 웹 서버
+
+host 인터넷에 접속되어 있는 컴퓨터 하나 하나
+hosting 인터넷에 접속되어 있는 컴퓨터를 제공하는 사업 / 목적 : 웹 -> web hosting
+ex) github 이용
+웹호스팅
+장 : 웹서버 직접 운영에 비해 쉬움
+단 : 인터넷의 원리가 감춰져 있음
+
+http:// HyperText Transfer Protocol 웹페이지를 전송하기 위해서 만든 통신규약
+file:// 웹브라우저는 파일을 직접 열어 보여줌
+Back-end 파일 하나 변경->1억 개의 웹페이지가 한번에 변경
+
+부록 - 코드의 힘
+1. 동영상 삽입 youtube share
+2. 댓글 기능 추가 Disqus, LiveRe
+3. 채팅 기능 추가 https://www.tawk.to
+4. 웹사이트 방문자 분석기 https://analytics.google.com
+
+WEB1 완강.

@@ -50,7 +50,7 @@ Unsplash 이미지
 </html>
 
 <a> 링크 (정보의 바다에 정박한다는 시적 표현)
-<p><a href="https://www.w3.org/TR/html5/" target="_blank" title="html5 specification">Hypertext Markup Language (HTML)</a>
+<a href="https://www.w3.org/TR/html5/" target="_blank" title="html5 specification">Hypertext Markup Language (HTML)</a>
 href HyperText Reference 링크 참조
 target="_blank" 링크 클릭시 새창에서 페이지가 열리게 하는 속성
 title="html5 specification" 링크가 담고 있는 내용을 툴팁으로 보여주는 기능

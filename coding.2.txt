@@ -97,7 +97,7 @@ Back-end 파일 하나 변경->1억 개의 웹페이지가 한번에 변경
 
 부록 - 코드의 힘
 1. 동영상 삽입 youtube share
-2. 댓글 기능 추가 Disqus, LiveRe
+2. 댓글 기능 추가 Disqus, LiveRe 웹서버를 이용해 웹페이지를 열어야 함
 3. 채팅 기능 추가 https://www.tawk.to
 4. 웹사이트 방문자 분석기 https://analytics.google.com
 

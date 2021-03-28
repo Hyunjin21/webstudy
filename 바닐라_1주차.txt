@@ -155,7 +155,7 @@ console.log( b , a );   >>Assignment to constant variable //상수변수에 대�
 예) 요일 정렬
 const something = "Something"
 
-const daysOfWeek = ["Mon", "Tue", "Wed". "Thu", "Fri", "Sat", "Sun", 54, true, "stuff", "lalala", something];
+const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun", 54, true, "stuff", "lalala", something];
 /* 
   daysOfWeek 규칙 : Camel case 방식 - 변수명 소문자로 시작해서 중간에 스페이스가 필요하면 스페이스 대신에 대문자를 써주고 그 다음 다른 단어를 쓴다.
   [] 데이터 타입만 쓸 수 있다 텍스트,true/false, numbers, floats, 변수(something) 
@@ -219,6 +219,7 @@ console.log(nicoInfo);
 //farFood object 안에 array가 있고 그 안에 object가 있는 것
 //console.log 읽고 에러 해결하기
 
+#2 PRACTICE
 2.0
 console.log 와 nicoInfo.farFood 의 비슷한 점 : .(점)
 console 과 nicoInfo 는 object

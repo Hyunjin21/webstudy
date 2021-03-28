@@ -1,3 +1,4 @@
+#3 MAKE YOUR FISRT JS APP
 3.0
 Momentum을 만들어보자
 시계
@@ -114,7 +115,7 @@ function paintGreeting(text){
 }
 function loadName(){
     const currentUser = localStorage.getItem(USER_LS);
-    if (cureentUser === null){
+    if (currentUser === null){
         // she is not
     } else {
         paintGreeting(currentUser);  // she is  

@@ -1,0 +1,629 @@
+바닐라 JS로 크롬 앱 만들기 1주차
+
+#0 INTRODUCTION
+0.1 
+한글자막제공
+
+0.2 
+자바스크립트 function variable object 의미 알기
+html css + js
+
+0.3 
+미니 앱 만들기 
+모멘텀 만들기 Momentum : 크롬 탭을 열 때마다 나타남 / 기능 : 배경사진, 멋진 문구, 날씨, 할 일 목록, 시계
+
+#1 THEORY
+1.0
+why JS? 웹에 쓰이는 하나뿐인 프로그래밍 언어 (옵션이 하나뿐이다)
+웹에서 웹사이트를 만들고 싶을 때 
+그 웹사이트를 interactive로 만들고 싶을 때
+
+Backend 일을 한다면 언어에 대한 옵션은 많다 -> python, Ruby, 하스켈, ASP, Java
+Frontend 일을 한다면 쓸 수 있는 언어는 하나뿐이다. ->JavaScript  : 장점이면서 단점이다
+좋은 이유는 Fragmentation이 없기 때문이다
+할 수 있는 게 없을 때가 있다. 바꿀 수도 없고 업데이트도 할 수 없고 원하는 것으로 교체할 수도 없다.
+예) 90년대 JS는 Effects를 넣어줄 용도로 만들어짐 웹사이트에 클릭하는 효과 
+이벤트들을 두 개 이상 진행할 수 있게 도와주는 역할
+
+웹성장 -> JS 영향력이 강해짐
+웹사이트, 웹 앱, 모바일 어플리케이션, Native application, 비디오 게임, 데스크톱 앱 등등
+프론트엔드에서 JavaScript 사용 why? 만들고 다른 언어로 교체하지 않았기 때문
+
+1.1
+JavaScript가 얼마나 강력한지
+웹사이트 : 내 위치, 위치의 날씨, 할 일 목록 저장(새로 고침), Real time(실시간)만들기-실시간 채팅, 
+               휴대폰에서 작동하는 앱(전송 및 다운), 데모앱, 비디오게임(리얼타임), interactive 한 것
+
+1.2
+versions
+ES5 = ECMAScript5
+ES6 = ECMAScript6
+specification의 버전을 나타냄 체계 메뉴얼, 안내 책자, 설명문 - 이걸 읽고 이대로 하면 컴퓨터가 이렇게 작동한다.
+바닐라 자바스크립트 : JavaScript의 한 종류로 Library가 없는 것을 의미함 
+
+1.3
+JavaScript 오래되어 이쁘지 않음
+바닐라 자바스크립트는 브라우저를 통해 우리에게 제공됨 -> 온갖 임시방편과 지저분한 것들로 이루어짐
+많은 사람들 Library와 Framework를 알고 있다. 그러나 어려운 바닐라 자바스크립트는 잘 모른다. 
+
+1.4
+사용할 툴 에디터 visual studio code / atom / sublime text / repl 
+<!--html-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Something</title>
+        <link rel="stylesheet" href="index.css" />
+    </head>
+    <body>
+        <h1>This works!</h1>
+        <script src="index.js"></script>
+    </body>
+</html>
+
+<!--css-->
+body{
+    background-color: peru;
+}
+
+h1 {
+    color:white;
+}
+
+<!--javascript-->
+console.log('Im Working. Im JS. Im Beautiful. Im worth it'); //경고메세지 만들기 Hello world 언어라고 부른다
+//모든 웹브라우저에는 JavaScript가 설치되어 파일 추가가 심플하다.
+
+1.5
+JavaScript : 컨셉을 배운다 (모든 언어에서 일맥상통)
+Function, Variable, 그 외의 조건들, 이벤트, class, objects, arrays 등등 배운다
+
+1.6
+변수 Variables 변경되거나 변경될 수 있는 것
+a = 221;
+b = a - 5;
+console.log(b);           >>216
+//모든 것은 다른 라인에 있다.
+a = 221 b = a - 5      >>Syntaxerror
+//모든 instructions은 각기 다른 라인에 있다. 라인=Expressions
+/*모든 expressions는 한 줄에 있어야 해
+한 expression이 끝나는 곳을 선언하는 방법은
+a = 221;
+b = a - 5;
+console.log(b);
+다른 문법은 변수를 이렇게 시작하면 안된다, 이유 : 두 종류의 변수가 있기 때문이다
+우리가 필요한 것은 이 변수의 시작에 무언가를 더해주는 것
+*/
+
+Create      : 변수 생성
+Initialize    : 초기화
+Use          : 사용
+
+let a = 221;     //생성과 초기화 같은 라인
+let b = a - 5;   //a를 나중에 사용
+a = 4;            //a를 업데이트
+console.log( b , a );
+
+실행은 위에서 아래로
+규칙 : 바로 변수를 초기화하기 전에 let을 앞에 넣는다.
+생성과 초기화에 let을 쓰고 사용시에는 쓰지 않아도 된다. (이미 생성된 것 사용할 때 참조만 하면 됨)
+
+1.7
+const a = 221;
+//constant 상수 안정적 변하지 않는다
+let b = a - 5;
+a = 4;
+console.log( b , a );   >>Assignment to constant variable //상수변수에 대입 - 라인 몇 번째 오류
+//변수를 변하지 않게 하려면 const , 변수가 바뀌어도 괜찮다면 let 사용
+//var 사용 : 값 바꿀 수 있다 (과거에 쓰임)
+
+1.8
+코멘트(주석)
+//pls help me 한 줄 주석
+/* to do : finish this
+    to do : finish this */ 멀티라인 코멘트
+변수를 선언할 때 기본으로 const를 쓰도록 진짜 필요할 때만 let
+
+/*
+  String (모든 것을 붙이는 것, 텍스트 스트링, 텍스트 저장, 이모티콘)
+  const what = "Nicolas";  //""없으면 정의되지 않음, 존재하지 않음
+  const what = "5959";     //숫자가 아닌 텍스트
+  console.log(what); 
+*/
+/*
+  Boolean(True or False) 텍스트가 아니다
+  const what = true;   //모두 소문자 , ""없이 쓴다  
+  console.log(what); 
+*/
+/*
+  Number
+  const what = 666;  
+  console.log(what); 
+*/
+/*
+  float (floating number 소숫점)
+  const what = 55.1;
+  console.log(what); 
+*/
+
+1.9 
+데이터 정렬하는 방법
+1) Array
+여러 string을 하나로 묶는 것
+데이터를 저장하는 곳. 리스트 같이 저장.
+
+예) 요일 정렬
+const something = "Something"
+
+const daysOfWeek = ["Mon", "Tue", "Wed". "Thu", "Fri", "Sat", "Sun", 54, true, "stuff", "lalala", something];
+/* 
+  daysOfWeek 규칙 : Camel case 방식 - 변수명 소문자로 시작해서 중간에 스페이스가 필요하면 스페이스 대신에 대문자를 써주고 그 다음 다른 단어를 쓴다.
+  [] 데이터 타입만 쓸 수 있다 텍스트,true/false, numbers, floats, 변수(something) 
+  하나하나 작성하면 오래걸림
+*/
+console.log(daysOfWeek[2]);      >>Wed
+//컴퓨터는 0부터 센다
+
+1.10
+2) Object
+다른 점 : Object에는 각 value에 이름을 줄 수 있다
+만약 리스트로 만들고 싶을 땐 Array로 정의
+만약 개인 정보를 저장하고자 한다면 Object 이용
+const nicoInfo = ["Nicolas", "55", true, "Seoul"];  //누구도 이 데이털르 정렬된 방식으로 접근할 수 없다
+console.log(nicoInfo); 
+
+Array 선언 [ ]
+Object 선언 { }
+
+//object 생성 방법
+const nicoInfo = {
+   name: "NIco",
+   age: 33,
+   gender: "Male",
+   isHandsome: true
+}
+
+console.log(nicoInfo.gender);  //데이터의 이름만 사용
+
+nicoInfo.gender = "Female" //nicoInfo 안에 값은 바꿀 수 있다 but, nicoInfo자체를 바꿀 수 없다 nicoInfo = true; 오류
+
+console.log(nicoInfo.gender);       >> Male
+                                                   Female
+/*
+  object는 실제 객체를 만드는 것이다
+  label을 저장하고 싶은 data에 줄 수 있다
+  차이점 : name은 변수니까 텍스트가 아니다
+*/
+만약 DB에서 가져온 리스트 데이터라면 Array를 선택하고
+만약 데이터를 합쳐서 만들어야 한다면 = 많은 사람들을 array로 만든다면 ->object를 array 안에 넣는다
+
+const nicoInfo = {
+    name: "Nico",
+    age: 33,
+    gender: "Male",
+    isHandsome: true,
+    farMovies: ["Along the gods", "LOTR", "Oldboy"] //,(콤마) 빼먹지 말기, string쓸 때 "" 잊지 말기
+    farFood: [ 
+       { 
+         name: "Kimchi", 
+         fatty: false
+       } , 
+       { 
+         name: "cheese burger",
+         fatty: true
+       } 
+    ]
+}
+console.log(nicoInfo);
+
+//farFood object 안에 array가 있고 그 안에 object가 있는 것
+//console.log 읽고 에러 해결하기
+
+2.0
+console.log 와 nicoInfo.farFood 의 비슷한 점 : .(점)
+console 과 nicoInfo 는 object
+.log는 function(함수) 자바스크립트 안에 있는 것
+
+console.log(console) -> nicoInfo보다 더 큰 오브젝트
+브라우저가 가지고 있는 자바스크립트는 object에 넣을 수 있다
+
+console.log alert 등 많은 함수들을 내장함수(built-in function)라고 한다
+
+함수: 어떤 것의 기능, 어떤 걸 수행하려는 한 부분으로 원하는 만큼 쓸 수 있다
+
+예) console.log로 hello라고 찍히게 하는 코드를 짜고자 한다
+console.log('Hello Nicolas');
+console.log('Hello Jun');
+console.log('Hello Liyn');
+console.log('Hello Dal');   //효과적이지 않음
+
+//자바스크립트 함수 정의하는 방법
+function sayHello(potato, chicken){           // ()안에 함수 안에서 사용하게 될 이름, 변수명 parameter or argument
+   console.log('Hello!' , potato, " you have ", chicken);   //인자로 함수를 부른다
+}
+
+sayHello("Nicolas" , 15); //인자 2개     
+console.log("Hi!");   //log도 함수 console object 안에 있는 함수라는 뜻 , console.log는 안에 메세지가 없이는 동작X, 인자를 무한하게 가질 수 있다
+
+>> Hello! Nicolas
+   Hi!
+
+=>자바스크립트가 하는 것은 "Nicolas" 값을 potato에 넣는다
+    외부에 있는 데이터를 읽는 함수를 만드는 방법
+    함수에게 외부에 있는 데이터를 주는 방법
+
+2.1
+만약 콤마를 쓰고 싶지 않다면
+과거 console.log('Helo" + name + " you are" + age + "years old");
+따옴표 ' ', " " 둘다 스트링이다
+
+백틱(`)
+function sayHello(name, age){
+     console.log(`Hello ${name} you are ${age} years old`);
+}
+return 돈을 내면 반드시 잔돈을 받아야 한다는 개념
+
+const greetNicolas = sayHello("Nicolas", 14);  //변수 선언 greetNicolas는 sayHello 함수의 리턴값, 실행된 결과 값
+
+console.log(greetNicolas);  >>undefined 정의되지 않음
+
+하나의 console.log를 갖게 된다
+왜냐하면 이 sayHello 함수는 어떤 값을 반환하지만 console.log로 찍어주지는 않는다
+
+function sayHello(name, age){
+     return(`Hello ${name} you are ${age} years old`);
+}
+const greetNicolas = sayHello("Nicolas", 14);
+
+//console.log 값이 하나도 없다 console.log가 없으니까
+
+//console.log는 객체다. - 함수 기능을 객체 안에 구현해야 한다
+const calculater = {
+   plus: function (a, b){
+   return a+b;
+ },
+   minus: function (a, b){
+   return a-b;
+ },
+   multiple: function (a, b){
+   return a*b;
+ },
+   divide: function (a, b){
+   return a/b;
+ },
+   remainder: function (a, b){
+   return a%b;
+ },
+   power: function (a, b){
+   return a**b;
+ }
+}
+
+const plus = calculater.plus (1,1)
+console.log(plus)
+
+const minus = calculater.minus (100,50)
+console.log(minus)
+
+const multiple = calculater.multiple (2, 7)
+console.log(multiple)
+
+const divide = calculater.divide (20, 5)
+console.log(divide)
+
+const remainder = calculater.remainder (3, 10)
+console.log(remainder)
+
+const power = calculater.power (2, 6)
+console.log(power)
+
+2.2
+HTML 다루기가 목표
+CSS와 같이 자바스크립트에서도 element를 선택할 수 있다
+
+html
+<h1 id ="title"> This works!</h1> //아이템을 선택해보자
+css에서 #title로 쓰면 동작한다.
+
+js
+console.log(document);  //inspect해준다.
+HTML document는 자바스크립트가 된다.
+document는 많은 .(점) 어떤 걸 가지고 있다.
+
+console.log(document.getElementById);
+->이쁘게
+const title = document.getElementById("title");
+console.log(title);
+// html <head>요소를 준다.
+console.error("Fuck");
+
+자바스크립트는 html에 있는 모든 요소를 가지고 와 객체로 바꾼다
+*document에 있는 모든 건 다 객체가 된다
+-> 모든 객체의 함수들은 DOM(Document Object Model)형태로 변경가능
+    = html을 이 DOM객체로 바꿀 수 있다
+객체는 많은 키를 가지고 있다. ex) .log .error .name .handsome .age .뭐든
+
+const title = document.getElementById("title");
+title.innerHTML = "Hi! From JS";
+//실제로 바뀐 HTML을 갖게 된다. = 자바스크립트의 힘
+
+2.3
+js
+const title = document.getElementById("title");
+title.innerHTML = "Hi! From JS";
+console.dir(title);
+//title로 할 수 있는 것들
+  자바스크립트 객체 표기법을 볼 수 있다.
+  수정을 할 수 있다.
+
+const title = document.getElementById("title");
+title.innerHTML = "Hi! From JS";
+title.style.color = "red";  //자바스크립트로 HTML을 조종가능
+console.dir(title);
+
+console.dir(document);
+//URL, all, 모든 텍스트들, body
+
+document.title = "I own you now"; 
+//사이트 이름 바뀜
+
+const title = document.querySelector("title");
+//노드의 첫번째 자식을 반환한다
+document로 가서 모든 자식들 중에서 찾으려고 한다
+=id로 선택해보겠다 #로 
+만약 id로 찾고 싶으면 #title 로 쓴다. class는 .title
+const title = document.querySelector("#title");
+title = null(undefined) 정의할 수 없음 존재하지 않아 찾을 수 없다.
+
+2.4
+자바 스크립트는 이벤트에 반응하기 위해 만들어졌다.
+이벤트 : 웹사이트에서 발생하는 것들을 말한다.
+ex) click resize submit input changr load before closing printing
+->우리가 이벤트를 중가에 가로챌 수 있다.
+
+window. 는 조금 다른 이벤트를 가지고 있다.
+window.addEventListener("submit")
+//submit은 window에 존재하지 않는다. - window를 제출할 수 없으니까
+
+window.addEventListener("resize")
+//우리가 이벤트를 받기 기다린다. (listen to event)
+
+event listener를 sindow에 추가하려고 하면
+우리가 이벤트에서 다룰 함수를 적는다.
+
+const title = document.querySelector("#title");
+
+function handleResize(){
+    console.log("I have been resized")
+}
+window.addEventListener("resize", handleResize); //중요!!handleResize()가 아니다!!
+//window resize는 handleResize를 호출한다. 필요한 시점에
+//handleResize()는 지금 바로 호출 자동으로 호출됨
+->윈도우 사이즈가 변경될 때 이 함수를 호출하자 = 함수를 바로 즉시 호출하지 않는다
+: 이벤트 한개를 듣고 있다.
+
+function handleResize(event){
+    console.log(event);
+} //event는 자바스크립트로부터 왔다.
+이벤트를 다룰 함수를 만들 때마다 자바스크립트는 자동적으로 함수를 객체에 붙인다
+event가 발생할 때마다 이 이벤트 객체가 호출된다
+resize 이벤트는 폼을 만들 때 유용 or 링크를 클릭할 때 유용
+
+const title = document.querySelector("#title");
+function handleClick(){
+    title.style.color = "blue"; //클릭은 한번만 가능. 그 상태로 머문다.
+}
+title.addEventListener("click", handleClick);
+//title을 주고 click 이벤트를 기다린다.
+//누군가 타이틀을 클릭할 때마다 색깔을 변경
+
+2.5
+if(condition){  //조건이란 뭐든 참을 의미하면 넣을 수 있다.
+    block    //block은 자바스크립트 표현법이다
+}else{
+    block
+}
+
+if(10 > 5){
+    console.log("hi";)
+}else{
+    console.log("ho");
+}                                >>hi
+
+if(10 === 5) //할당하지 않고 10과 5가 같은지 체크한다.
+if("nicolas" === "necolas") //다르다
+if("10" === 10) //왼쪽은 문자열 , 오른쪽은 숫자 = 다르다
+if조건은 항상 참이어야 한다 / 참이 아니면 else블록으로 간다
+
+if("10" === 10){
+    console.log("hi";)
+} else if ("10"==="10"){
+    console.log("lalala");
+} else{
+    console.log("ho");
+}                                >>lalala
+
+피연산자 다른 조건들을 합치게 한다.
+if (20 > 5 && "nicolas" === "nicolas"){
+    console.log("yes");
+} else {
+    console.log("no");
+}                                      >>yes
+//하나라도 거짓이면 else문장, 둘다 참이어야 참
+
+if (20 > 5 || "ncolas" === "nicolas"){
+    console.log("yes");
+} else {
+    console.log("no");
+}                                       >>yes
+//하나 혹은 나머지 것을 뜻함
+
+true && true = true;  //둘다 true여야 한다
+false && true = false;
+true && false = false;
+false && false = false;
+
+true || true = true;  
+false || true = true;
+true || false = true;
+false || false = false;
+
+promt는 유저에게 무엇인가를 물어볼 수 있다. (오래된 자바스크립트, alert같은)
+const age = prompt("Ask something");
+
+if (age >= 18 && age <= 21){
+    console.log("you can drink but you should not");
+} else if (age > 21){
+    console.log("go ahead");
+} else {
+    console.log("too young");
+}
+
+2.6
+const title = document.querySelector("#title");
+
+const BASE_COLOR =  "#34495e";
+//색깔값 체크
+
+function handleClick(){
+    console.log(title.style.color);
+}
+
+function init(){
+    title.style.color = "BASE_COLOR";
+    title.addEventListener("click", handleClick);
+}         //어플리케이션 초기화
+init()    //내함수 호출
+
+->const BASE_COLOR =  "rgb(52, 73, 94)";
+//자바스크립트가 다른 컬러로 바꾸어줌
+
+flatuicolors.com 에서 색깔 추출 가능
+
+function handleClick(){
+    const currentColor = title.style.color;
+    console.log(currentColor);
+}           
+//체크한다
+
+function handleClick(){
+    const currentColor = title.style.color;
+    if (currentColor === BASE_COLOR){
+        title.style.color = OTHER_COLOR;
+    } else {
+        title.style.color = BASE_COLOR;
+    }
+}
+//한번클릭 참 OTHER_COLOR로 그 다음 클릭 BASE_COLOR
+두 개 다 바꾸고 있다 
+=로직을 추가하는 방법
+=이벤트에 반응하는 방법
+=콘텐츠를 조금 수정하는 방법
+
+마우스 엔터
+function init(){
+    title.style.color = "BASE_COLOR";
+    title.addEventListener("mouseenter", handleClick);
+} 
+init() 
+//마우스가 들어갈 때마다 바뀐다, 반응한다
+
+HTML JavaScript DOM event MDN
+이벤트의 근원 알아보기
+
+function handleOffline(){
+    console.log("lalalaal");
+}
+window.addEventListener("offline", handleOffline);
+//와이파이를 끄면 나온다
+
+function handleOffline(){
+    console.log("Bye bye");
+}
+function handleOnline(){
+    console.log("Welcome back");
+}
+window.addEventListener("offline", handleOffline);
+window.addEventListener("online", handleOnline);
+
+2.7
+자바스크립트가 웹사이트를 처리하는 것을 원하지 않는다.
+
+const title = document.querySelector("#title");
+const CLICKED_CLASS = "clicked";
+
+function handleClick(){}
+function init(){
+    title.addEventListener("click", handleClick);
+} 
+init()
+//HTML에서 클래스 이름을 바꾼다
+<h1 id="title">This works!</h1>
+<h1 id="title" class="clicked">This works!</h1>//자바스크립트로 수행하길 원하는 것
+
+function handleClick(){
+    const currentClass = title.className;
+    console.log(currentClass); //className은 비어있다
+}
+
+function handleClick(){
+    const currentClass = title.className;   //value값을 가져온다.
+    if (currentClass !== CLICKED_CLASS){
+        title.className = CLICKED_CLASS;  //값을 세팅한다.
+    } else {
+        title.className = "" //empty
+    }
+}
+실패!!
+HTML
+<h1 id="title" class="btn">This works!</h1>
+CSS
+.btn{
+    cursor: pointer;
+}       
+//클릭하면 내 클래스포인터는 어디론가 가버린다
+//class는 clicked가 된다
+//이전 클래스를 존중하지 않는다
+
+HTML element className
+우리가 필요한 건 classList
+classList에서는 메소드(Method)를 가진다
+
+function handleClick(){
+    const currentClass = title.className;   
+    if (currentClass !== CLICKED_CLASS){
+        title.classList.add(CLICKED_CLASS);   
+    } else {
+        title.classList.remove(CLICKED_CLASS);
+    }     //우리는 btn class를 제거할 수 없기에 우리를 도와준다
+}
+//currentClass는 더이상 CLICKED 상태가 아니니까 뒤로 돌아가지 않는다
+
+우리는 한개 클래스만 체크할 수 있으니까
+contains : value가 존재하는지 체크한다
+
+function handleClick(){
+    const hasClass = title.classList.contains(CLICKED_CLASS)
+    if (!hasClass){           //!는 반대
+        title.classList.add(CLICKED_CLASS);   
+    } else {
+        title.classList.remove(CLICKED_CLASS);
+    }
+}
+//우린 갖지 않은 경우를 체크하고싶다 - !hasClass
+
+명확하게 보이려면
+function handleClick(){
+    const hasClass = title.classList.contains(CLICKED_CLASS)
+    if (hasClass){
+          title.classList.remove(CLICKED_CLASS);
+    } else {
+        title.classList.add(CLICKED_CLASS); 
+    }
+}
+
+toggle은 우리가 여기서 했던 모든걸 요약한다
+function handleClick(){
+    title.classList.toggle(CLICKED_CLASS);
+}
+//클라스가 거기에 있는지 체크해서 거기 있으면 add 아니면 remove를 해준다
